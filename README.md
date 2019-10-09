@@ -1,6 +1,6 @@
 # SelfContainedAPI
 
-This one simple PHP source file implements three sub-systems often deployed in separate PHP frameworks that can occuply hundreds (even thousands) of files. This simplicity enables making an easier inventory of vulnerabilities. Since this code does not call any external code, you can need only the minimum to preserve the simplicity.
+This one simple PHP source file implements three sub-systems often deployed in separate PHP frameworks that can occuply hundreds (even thousands) of files. This simplicity enables making an easier inventory of vulnerabilities. Since this code does not call any external code, you need only the minimum to preserve the simplicity.
 
 1. A pop-up javascript modal dialog that can present the column-value of a table record for editing, save it to the database (via an API call to this same page), and update the DOM with the edited value.
 
