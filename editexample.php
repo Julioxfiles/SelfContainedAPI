@@ -292,12 +292,4 @@ function DatabaseSimulator($operation, $z, $tablename = null, $fieldname=null, $
         return $f[$tablename][$z][$fieldname];
     }
 }
-
-echo '<h2>Code</h2>';
-echo '<pre>';
-$a = file('editexample.php');
-foreach($a as $line) {
-    echo htmlentities($line);
-}
-echo '</pre>';
 ?>
