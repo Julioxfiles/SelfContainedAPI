@@ -12,6 +12,8 @@ A database simulator is employed to remove the complexities of dealing with SQL.
 
 ## Deployment to Your Website
 
+First, just put this code into a PHP file and execute it. It should run and enable you to update fields via the Save button and the popup editor. When ready to deploy do these:
+
 1. Paste the script before the ending body tag.
 
 2. Remove the record keys initialization and database simulator code.
