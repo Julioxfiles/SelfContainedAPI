@@ -15,6 +15,12 @@ Include this in the `<head>`:
   var r = false;
 </script>
 ```
+Include this after `<body>`:
+```<div id='js_field_editor' class='hidden' style='display:none'>{"js_field_editor":{"fields":{"notes":{"validate_regexp":false,"js_regexp":"[a-zA-Z]","php_regexp":"[a-zA-Z]","regexp_message":"Only leters are accepted."}}}}</div>
+```
+
+
+
 
 /* 1.- You must require the required_files.php which itselft contanis more requires.
     required_files.php content. */
