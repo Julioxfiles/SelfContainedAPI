@@ -1,5 +1,15 @@
 ## Installation
 
+### Includes/Requires
+
+We want to include external code from CDNs whereever possible (to reduce maintenance). Instead of this:
+
+```require “/var/www/mastercopies/js/js_field_editor/js/jquery-3.3.1.min.js”```
+
+We should do this whenever we can:
+
+```<script src=“https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js”>```
+	
 ### Head
 
 Later code can include a file that includes all of the following, but for now, while documenting and testing this, we are including all of these lines in the `<head>`:
