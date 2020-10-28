@@ -1,3 +1,20 @@
+## Installation
+
+Include this in the <head>
+
+```<link rel='stylesheet' href='/var/www/mastercopies/js/libraries/windows/windows.css' type='text/css'>
+<script src='/var/www/mastercopies/js/libraries/windows/windows.js'></script>
+<!-- <script src='/var/www/mastercopies/js/js_field_editor/js/jquery.min.js'></script> -->
+<script src="/var/www/mastercopies/js/js_field_editor/js/jquery-1.12.4.js"></script>
+<script src='/var/www/mastercopies/js/js_field_editor/js/jquery-3.3.1.min.js'></script>
+<!-- <script src='/var/www/mastercopies/js/js_field_editor/js/jquery-3.5.1.js'></script> -->
+<script src="/var/www/mastercopies/js/js_field_editor/js/jquery-ui.js"></script>
+<script src="/var/www/mastercopies/js/js_field_editor/js/field_editor.js"></script>
+<script type="text/javascript">
+	// The r variable has to be initialized
+    var r = false;
+</script>
+```
 
 /* 1.- You must require the required_files.php which itselft contanis more requires.
     required_files.php content. */
