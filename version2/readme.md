@@ -1,6 +1,8 @@
 ## Installation
 
-Include this in the `<head>`:
+### Head
+
+Later code can include a file that includes all of the following, but for now, while documenting and testing this, we are including all of these lines in the `<head>`:
 
 ```html
 <link rel='stylesheet' href='/var/www/mastercopies/js/libraries/windows/windows.css' type='text/css'>
@@ -22,11 +24,15 @@ Include this in the `<head>`:
 * windows.css - the style of the windows
 * windows.js - functions to call the popup windows
 
+### Body
+
 Include this after `<body>`:
 
 ```html
 <div id='js_field_editor' class='hidden' style='display:none'>{"js_field_editor":{"fields":{"notes":{"validate_regexp":false,"js_regexp":"[a-zA-Z]","php_regexp":"[a-zA-Z]","regexp_message":"Only leters are accepted."}}}}</div>
 ```
+
+### Table Enclosing Items to Be Edited
 
 Put divs around the table (data grid) like this:
 
