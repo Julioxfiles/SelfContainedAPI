@@ -1,6 +1,6 @@
 ## Installation
 
-Include this in the <head>
+Include this in the `<head>`:
 
 ```<link rel='stylesheet' href='/var/www/mastercopies/js/libraries/windows/windows.css' type='text/css'>
 <script src='/var/www/mastercopies/js/libraries/windows/windows.js'></script>
@@ -11,8 +11,8 @@ Include this in the <head>
 <script src="/var/www/mastercopies/js/js_field_editor/js/jquery-ui.js"></script>
 <script src="/var/www/mastercopies/js/js_field_editor/js/field_editor.js"></script>
 <script type="text/javascript">
-	// The r variable has to be initialized
-    var r = false;
+  // The r variable has to be initialized
+  var r = false;
 </script>
 ```
 
