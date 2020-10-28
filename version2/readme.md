@@ -17,13 +17,22 @@ Include this in the `<head>`:
 </script>
 ```
 
+* jquery-ui.js - windows draggable
+* query-1.12.4.js - is this an old jquery?
+* windows.css - the style of the windows
+* windows.js - functions to call the popup windows
+
 Include this after `<body>`:
 
 ```html
 <div id='js_field_editor' class='hidden' style='display:none'>{"js_field_editor":{"fields":{"notes":{"validate_regexp":false,"js_regexp":"[a-zA-Z]","php_regexp":"[a-zA-Z]","regexp_message":"Only leters are accepted."}}}}</div>
 ```
 
+Put divs around the table (data grid) like this:
 
+```
+<div class="contanier" style="margin-bottom:10px; margin-top:10px;width:100%;height:500px;max-height:600px;overflow-x:scroll;overflow-y:scroll;">
+```
 
 
 /* 1.- You must require the required_files.php which itselft contanis more requires.
