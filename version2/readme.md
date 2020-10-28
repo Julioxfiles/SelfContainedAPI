@@ -2,7 +2,8 @@
 
 Include this in the `<head>`:
 
-```<link rel='stylesheet' href='/var/www/mastercopies/js/libraries/windows/windows.css' type='text/css'>
+```html
+<link rel='stylesheet' href='/var/www/mastercopies/js/libraries/windows/windows.css' type='text/css'>
 <script src='/var/www/mastercopies/js/libraries/windows/windows.js'></script>
 <!-- <script src='/var/www/mastercopies/js/js_field_editor/js/jquery.min.js'></script> -->
 <script src="/var/www/mastercopies/js/js_field_editor/js/jquery-1.12.4.js"></script>
@@ -15,9 +16,11 @@ Include this in the `<head>`:
   var r = false;
 </script>
 ```
+
 Include this after `<body>`:
 
-```<div id='js_field_editor' class='hidden' style='display:none'>{"js_field_editor":{"fields":{"notes":{"validate_regexp":false,"js_regexp":"[a-zA-Z]","php_regexp":"[a-zA-Z]","regexp_message":"Only leters are accepted."}}}}</div>
+```html
+<div id='js_field_editor' class='hidden' style='display:none'>{"js_field_editor":{"fields":{"notes":{"validate_regexp":false,"js_regexp":"[a-zA-Z]","php_regexp":"[a-zA-Z]","regexp_message":"Only leters are accepted."}}}}</div>
 ```
 
 
