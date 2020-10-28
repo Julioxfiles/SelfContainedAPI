@@ -2,37 +2,22 @@
 
 ### Includes/Requires
 
-We want to include external code from CDNs whereever possible (to reduce maintenance). Instead of this:
-
-```require “../js/jquery-3.3.1.min.js”```
-
-We should do this whenever we can:
-
-```<script src=“https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js”>```
-	
 ### Head
 
 Later code can include a file that includes all of the following, but for now, while documenting and testing this, we are including all of these lines in the `<head>`:
 
-```html
-<link rel='stylesheet' href='/var/www/mastercopies/js/libraries/windows/windows.css' type='text/css'>
-<script src='https://digitalfire.com/js/libraries/windows/windows.js'></script>
-<!-- <script src='https://digitalfire.com/js/js_field_editor/js/jquery.min.js'></script> -->
-<script src="https://digitalfire.com/js/js_field_editor/js/jquery-1.12.4.js"></script>
-<script src='https://digitalfire.com/js/js_field_editor/js/jquery-3.3.1.min.js'></script>
-<!-- <script src='https://digitalfire.com/js/js_field_editor/js/jquery-3.5.1.js'></script> -->
-<script src="https://digitalfire.com/js/js_field_editor/js/jquery-ui.js"></script>
-<script src="https://digitalfire.com/js/js_field_editor/js/field_editor.js"></script>
-<script type="text/javascript">
-  // The r variable has to be initialized
-  var r = false;
-</script>
-```
+# We are using CDN for better loading and security
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="  crossorigin="anonymous"></script>
 
-* jquery-ui.js - windows draggable
-* query-1.12.4.js - is this an old jquery?
-* windows.css - the style of the windows
-* windows.js - functions to call the popup windows
+# Depending on where you are located in the directory tree of your project. You will have to call the following libraries. In this example: the file that calls the libraries is on a third level and not in the root directory of the project.
+<link  href="../../../libraries/windows/windows.css" type="text/css" rel="stylesheet">
+<script src="../../../libraries/windows/windows.js"></script>
+<script src="../../../libraries/field_editor/field_editor.js"></script><script type="text/javascript">
+
+* jquery-ui.js -> makes windows draggable.
+* windows.css -> style of the windows.
+* windows.js -> javascrip functions to call the popup windows.
 
 ### Body
 
@@ -55,11 +40,8 @@ Put divs around the table (data grid) like this:
     required_files.php content. */
   
   `<?php
-		require("libraries/windows/windows.php");
-		require("functions.php");
-		require("colors.php");     // This is not necesary. I was in my tests.
-   		require("sessions.php");   // This is not necesary. I was in my tests.
-	?>`
+	require("../libraries/windows/windows.php");
+   ?>`
 
 	/* 2.- The css files and the js files descrip in the next points 3 and 4 must be wrapped up into divs so nobody sees the js code.
 	   You will need to call the repeat function like this:
@@ -73,15 +55,6 @@ Put divs around the table (data grid) like this:
 
     // 3.- This are the files you need to link for css.
     <link rel='stylesheet' href='libraries/windows/windows.css' type='text/css'>
-
-    // 4.- This are the files you need to link for js.
-    
-    `<script src='libraries/windows/windows.js'></script>
-  	<script src='js/jquery.min.js'></script>
-  	<script src='js/jquery-3.1.1.min.js'></script>
-    <script src="js/jquery-1.12.4.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/field_editor.js"></script>`
 
     /* 5.- A php array with the settings must be created. Of course you must change the db and table keys.
        You must provide a fields key with the name of fields (acording with the table) that will be edit.
