@@ -1,6 +1,27 @@
 # SelfContained API
 
-This is version 1, we originally made it so that the API was in the same PHP file. In version 2 (see version2 folder) we are using an external API.
+This project is so valuable to me that I am willing to spend a month on it. It needs to work on any browser, on phones and tablets. We must be willing to sacrifice aesthetics for functionality and compatibility _(tenemos que estar dispuesto a sacrificar la estética por la funcionalidad y la compatibilidad)_. Simplicity, not being too dependent on outside code that goes out-of-date, being documented well on my github account - these will make it easy-to-adopt and reliable _(simplicidad, no depender demasiado de un código externo que quede desactualizado, estar bien documentado en mi cuenta de github: esto hará que sea fácil de adoptar y confiable)_. It only needs to edit one field, simplicity is much more important than window resizeability and moveability _(solo necesita editar un campo, la simplicidad es mucho más importante que la capacidad de cambio de tamaño y movimiento de la ventana)_.
+
+# Goals
+
+Create a step-by-step procedure here to introduce to a web page the ability to click on a field and edit a record column in a popup dialog.
+
+* Simplicity: Employs an absolute minimum of external code, making it easy to implement in a webpage.
+
+* Standardized: All external code (js, css) is in one directory at /js. Each file there is documented in a txt file (e.g. xyz.js has an xyz.js.txt that explains it).
+
+* Compatibility: Works on phones, tablets, desktop.
+
+* Works on Normal Pages: No special divs needed. Fields just need an ID to identify them and an identified div that js can write data into.
+
+* Does not read or write from a database: Uses an external API to get the data, save the data.
+
+* Is documented thorouoghly here: The documentation grows as we improve the above features. It is in English and Spanish.
+
+* Demonstrated: A general-purpose demonstration page is maintained somewhere that shows how it works.
+
+
+## The Old Version from 2018
 
 Following is the description of the original version.
 
