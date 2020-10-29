@@ -1,4 +1,4 @@
-# SelfContained API
+# Javascript Pop-Up Field Editor
 
 This project is so valuable to me that I am willing to spend a month on it. It needs to work on any browser, on phones and tablets. We must be willing to sacrifice aesthetics for functionality and compatibility _(tenemos que estar dispuesto a sacrificar la estética por la funcionalidad y la compatibilidad)_. Simplicity, not being too dependent on outside code that goes out-of-date, being documented well on my github account - these will make it easy-to-adopt and reliable _(simplicidad, no depender demasiado de un código externo que quede desactualizado, estar bien documentado en mi cuenta de github: esto hará que sea fácil de adoptar y confiable)_. It only needs to edit one field, simplicity is much more important than window resizeability and moveability _(solo necesita editar un campo, la simplicidad es mucho más importante que la capacidad de cambio de tamaño y movimiento de la ventana)_.
 
