@@ -16,13 +16,13 @@ Later code can include a file that includes all of the following, but for now, w
 
 ```html
 <link rel='stylesheet' href='/var/www/mastercopies/js/libraries/windows/windows.css' type='text/css'>
-<script src='https://digitalfire.com/js/libraries/windows/windows.js'></script>
-<!-- <script src='https://digitalfire.com/js/js_field_editor/js/jquery.min.js'></script> -->
-<script src="https://digitalfire.com/js/js_field_editor/js/jquery-1.12.4.js"></script>
-<script src='https://digitalfire.com/js/js_field_editor/js/jquery-3.3.1.min.js'></script>
+<script src='/js/libraries/windows/windows.js'></script>
+<!-- <script src=/js/js_field_editor/js/jquery.min.js'></script> -->
+<script src="/js/js_field_editor/js/jquery-1.12.4.js"></script>
+<script src='/js/js_field_editor/js/jquery-3.3.1.min.js'></script>
 <!-- <script src='https://digitalfire.com/js/js_field_editor/js/jquery-3.5.1.js'></script> -->
-<script src="https://digitalfire.com/js/js_field_editor/js/jquery-ui.js"></script>
-<script src="https://digitalfire.com/js/js_field_editor/js/field_editor.js"></script>
+<script src="/js/js_field_editor/js/jquery-ui.js"></script>
+<script src="/js/js_field_editor/js/field_editor.js"></script>
 <script type="text/javascript">
   // The r variable has to be initialized
   var r = false;
@@ -47,7 +47,7 @@ Include this after `<body>`:
 Put divs around the table (data grid) like this:
 
 ```
-<div class="contanier" style="margin-bottom:10px; margin-top:10px;width:100%;height:500px;max-height:600px;overflow-x:scroll;overflow-y:scroll;">
+<div class="contanier" style="margin-bottom:10px; margin-top:10px; width:100%; height:500px; max-height:600px; overflow-x:scroll; overflow-y:scroll;">
 ```
 
 
