@@ -1,6 +1,63 @@
 # Javascript Pop-Up Field Editor
 
-This project is so valuable to me that I am willing to spend a month on it. It needs to work on any browser, on phones and tablets. We must be willing to sacrifice aesthetics for functionality and compatibility _(tenemos que estar dispuesto a sacrificar la estética por la funcionalidad y la compatibilidad)_. Simplicity, not being too dependent on outside code that goes out-of-date, being documented well on my github account - these will make it easy-to-adopt and reliable _(simplicidad, no depender demasiado de un código externo que quede desactualizado, estar bien documentado en mi cuenta de github: esto hará que sea fácil de adoptar y confiable)_. It only needs to edit one field, simplicity is much more important than window resizeability and moveability _(solo necesita editar un campo, la simplicidad es mucho más importante que la capacidad de cambio de tamaño y movimiento de la ventana)_.
+We are implementing this first in plainsmanclays.com/store/addedit.php.
+
+Nov 6, 2020
+
+Add this at the beginning
+
+```// js_field_editor
+// 1.- The require files are called.
+require("../libraries/windows/windows.php");
+//require("../js_field_editor/functions.php");
+
+// 2.- The js_field_editor array is created. This array can have any name.
+$js_field_editor = [
+	// Conection data
+	//'db' => 'plainsman',
+	'table' => 'variation',
+
+	'fields' =>  [
+		'shelf_num_from_top' => [
+			'type' => 'number',
+			'validate_regexp' => false,
+			'js_regexp' => '[a-zA-Z]',
+			'php_regexp' => '[a-zA-Z]',
+			'regexp_message' => 'Only leters and numbers are accepted.',
+		],
+		'notes' => [
+			'type' => 'textarea',
+			'validate_regexp' => false,
+			'js_regexp' => '[a-zA-Z]',
+			'php_regexp' => '[a-zA-Z]',
+			'regexp_message' => 'Only leters are accepted.',
+		],
+	]
+];
+
+// 3.- The $js_field_editor array is printed in the DOM from where its information will be read.
+//repeat("<div>",100);
+  			echo "<div id='js_field_editor' class='hidden' style='display:none'>";
+	    		echo json_encode(array("js_field_editor"=>$js_field_editor),JSON_FORCE_OBJECT);
+	  		echo "</div>";
+//repeat("</div>",100);
+```
+In the place for the edit: Line 1676
+
+```$shelf = 0;
+$ed1[] = '<td style="'.$tstyle.'"> <span id="shelf_num_from_top_'.$var['var_id'].'" style="font-size:75%; color:#aaaaaa;">'.$var['shelf_num_from_top'].'</span> <span data-id="'.$var['var_id'].'" data-field="shelf_num_from_top" onclick="edit_field(this)"> &#10000 </span> </td>';
+```
+
+Line 1689
+
+```					$ed1[] = '<td style="width:200px; line-height: 1em;"><span id="myBtn_'.$count.'" data-id="'.$var['var_id'].'" class="myBtn"  data-field="notes" onclick="edit_field(this)"> &#10000 </span> <span id="notes_'.$var['var_id'].'" style="font-size:75%; color:#aaaaaa;">'.($var['notes']?' '.substr($var['notes'],0,10):'No desc').'</span></td>'; # Variation-specific note coming here (with pop-up editor)
+```
+
+
+
+
+
+This project is so valuable to me that I am willing to spend a month on it. It needs to work on any browser, on phones and tablets. We must be willing to sacrifice aesthetics for functionality and compatibility. Simplicity, not being too dependent on outside code that goes out-of-date, being documented well on my github account - these will make it easy-to-adopt and reliable. It only needs to edit one field, simplicity is much more important than window resizeability and moveability.
 
 # Goals
 
