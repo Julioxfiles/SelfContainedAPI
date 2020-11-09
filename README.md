@@ -4,26 +4,38 @@ We are implementing this first in plainsmanclays.com/store/addedit.php.
 
 Nov 6, 2020
 
-Add this at the beginning
+Add this at the beginning:
 
-```// js_field_editor
-// 1.- The require files are called.
-require("../libraries/windows/windows.php");
-//require("../js_field_editor/functions.php");
+# The following two lines must be inserted in this file or in the file that loads jquery.
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="  crossorigin="anonymous"></script>
+
+# The following two lines load or import the windows system. The css file and the js file for it.
+<link rel='stylesheet' href='libraries/windows/windows.css' type='text/css'>
+<script src='libraries/windows/windows.js'></script>
+
+# The following line load or import the js field editor
+<script src="libraries/field_editor/field_editor.js"></script>
+
+# The following array must be created. This contain a few settings that js field editor will use.
 
 // 2.- The js_field_editor array is created. This array can have any name.
 $js_field_editor = [
-	// Conection data
-	//'db' => 'plainsman',
-	'table' => 'variation',
-
+	# Conection data
+	
+	// 'db' => 'plainsman', # If you are using an api to connect to a database, you don't need to specify a database name here.
+	'table' => 'variation', # The table element is always required. This defines the name of the table that will be affected.
+	
+	# Next the fields element, it defines the fields that will be affected. These are actual names of the fields in the db table. On this example the
+	names of the fields are shelf_num_from_top and notes.
+	
 	'fields' =>  [
 		'shelf_num_from_top' => [
-			'type' => 'number',
-			'validate_regexp' => false,
-			'js_regexp' => '[a-zA-Z]',
-			'php_regexp' => '[a-zA-Z]',
-			'regexp_message' => 'Only leters and numbers are accepted.',
+			'type' => 'number', # Possible values for the type are number, phone, email, text, textarea. If textarea will show a popup window.
+			'validate_regexp' => false, # Defines if a regular expresion must be validated or not. Values (on/off).
+			'js_regexp' => '[a-zA-Z]', # A javascript regular expresion to be validate.
+			'php_regexp' => '[a-zA-Z]', # A php regular expresion to be validate.
+			'regexp_message' => 'Only leters and numbers are accepted.', # A message that will be returned if the validation fails.
 		],
 		'notes' => [
 			'type' => 'textarea',
@@ -35,13 +47,11 @@ $js_field_editor = [
 	]
 ];
 
-// 3.- The $js_field_editor array is printed in the DOM from where its information will be read.
-//repeat("<div>",100);
-  			echo "<div id='js_field_editor' class='hidden' style='display:none'>";
-	    		echo json_encode(array("js_field_editor"=>$js_field_editor),JSON_FORCE_OBJECT);
-	  		echo "</div>";
-//repeat("</div>",100);
-```
+# The $js_field_editor array is printed in the DOM from where its information will be read.
+echo "<div id='js_field_editor' class='hidden' style='display:none'>";
+echo json_encode(array("js_field_editor"=>$js_field_editor),JSON_FORCE_OBJECT);
+echo "</div>";
+
 In the place for the edit: Line 1676
 
 ```$shelf = 0;
