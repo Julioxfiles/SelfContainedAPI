@@ -4,26 +4,38 @@ We are implementing this first in plainsmanclays.com/store/addedit.php.
 
 Nov 6, 2020
 
-Add this at the beginning
+Add this at the beginning:
 
-```// js_field_editor
-// 1.- The require files are called.
-require("../libraries/windows/windows.php");
-//require("../js_field_editor/functions.php");
+# The following two lines must be inserted in this file or in the file that loads jquery.
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="  crossorigin="anonymous"></script>
+
+# The following two lines load or import the windows system. The css file and the js file for it.
+<link rel='stylesheet' href='libraries/windows/windows.css' type='text/css'>
+<script src='libraries/windows/windows.js'></script>
+
+# The following line load or import the js field editor
+<script src="libraries/field_editor/field_editor.js"></script>
+
+# The following array must be created. This contain a few settings that js field editor will use.
 
 // 2.- The js_field_editor array is created. This array can have any name.
 $js_field_editor = [
-	// Conection data
-	//'db' => 'plainsman',
-	'table' => 'variation',
-
+	# Conection data
+	
+	// 'db' => 'plainsman', # If you are using an api to connect to a database, you don't need to specify a database name here.
+	'table' => 'variation', # The table element is always required. This defines the name of the table that will be affected.
+	
+	# Next the fields element, it defines the fields that will be affected. These are actual names of the fields in the db table. On this example the
+	names of the fields are shelf_num_from_top and notes.
+	
 	'fields' =>  [
 		'shelf_num_from_top' => [
-			'type' => 'number',
-			'validate_regexp' => false,
-			'js_regexp' => '[a-zA-Z]',
-			'php_regexp' => '[a-zA-Z]',
-			'regexp_message' => 'Only leters and numbers are accepted.',
+			'type' => 'number', # Possible values for the type are number, phone, email, text, textarea. If textarea will show a popup window.
+			'validate_regexp' => false, # Defines if a regular expresion must be validated or not. Values (on/off).
+			'js_regexp' => '[a-zA-Z]', # A javascript regular expresion to be validate.
+			'php_regexp' => '[a-zA-Z]', # A php regular expresion to be validate.
+			'regexp_message' => 'Only leters and numbers are accepted.', # A message that will be returned if the validation fails.
 		],
 		'notes' => [
 			'type' => 'textarea',
@@ -35,28 +47,26 @@ $js_field_editor = [
 	]
 ];
 
-// 3.- The $js_field_editor array is printed in the DOM from where its information will be read.
-//repeat("<div>",100);
-  			echo "<div id='js_field_editor' class='hidden' style='display:none'>";
-	    		echo json_encode(array("js_field_editor"=>$js_field_editor),JSON_FORCE_OBJECT);
-	  		echo "</div>";
-//repeat("</div>",100);
-```
+# The $js_field_editor array is printed in the DOM from where its information will be read.
+echo "<div id='js_field_editor' class='hidden' style='display:none'>";
+echo json_encode(array("js_field_editor"=>$js_field_editor),JSON_FORCE_OBJECT);
+echo "</div>";
+
+# Two html span tags must be inserted into a td tag table in the following order and nothing must be inserted between them. 
+echo "<span id='shelf_num_from_top_$id'> $shelf_num_from_top </span>";
+echo "<span data-id='$id' data-field='shelf_num_from_top' onclick='edit_field(this)'> &#10000 </span>";
+
+# Note that the first span tag above contains an id attribute created with the field name and the $ id variable to give it a unique value.
+# The second tag above contains a data-id attribute that receives the value of $id and a data-field attribute that receives the name of the actual field in the table. The second tag also has an onclick attribute with the value edit_field (this), this value does not change for all the fields to be edited. What this attribute does is tell js that when you click on this tag, call the js edit_field () function and pass the data for this tag or element through the (this) parameter. So it pass all its attributes and values.
+
+# Next is a real example in plainsman.
 In the place for the edit: Line 1676
 
-```$shelf = 0;
 $ed1[] = '<td style="'.$tstyle.'"> <span id="shelf_num_from_top_'.$var['var_id'].'" style="font-size:75%; color:#aaaaaa;">'.$var['shelf_num_from_top'].'</span> <span data-id="'.$var['var_id'].'" data-field="shelf_num_from_top" onclick="edit_field(this)"> &#10000 </span> </td>';
-```
 
-Line 1689
+$ed1[] = '<td style="width:200px; line-height: 1em;"><span id="myBtn_'.$count.'" data-id="'.$var['var_id'].'" class="myBtn"  data-field="notes" onclick="edit_field(this)"> &#10000 </span> <span id="notes_'.$var['var_id'].'" style="font-size:75%; color:#aaaaaa;">'.($var['notes']?' '.substr($var['notes'],0,10):'No desc').'</span></td>'; # Variation-specific note coming here (with pop-up editor)
 
-```					$ed1[] = '<td style="width:200px; line-height: 1em;"><span id="myBtn_'.$count.'" data-id="'.$var['var_id'].'" class="myBtn"  data-field="notes" onclick="edit_field(this)"> &#10000 </span> <span id="notes_'.$var['var_id'].'" style="font-size:75%; color:#aaaaaa;">'.($var['notes']?' '.substr($var['notes'],0,10):'No desc').'</span></td>'; # Variation-specific note coming here (with pop-up editor)
-```
-
-
-
-
-
+# Tony notes
 This project is so valuable to me that I am willing to spend a month on it. It needs to work on any browser, on phones and tablets. We must be willing to sacrifice aesthetics for functionality and compatibility. Simplicity, not being too dependent on outside code that goes out-of-date, being documented well on my github account - these will make it easy-to-adopt and reliable. It only needs to edit one field, simplicity is much more important than window resizeability and moveability.
 
 # Goals
